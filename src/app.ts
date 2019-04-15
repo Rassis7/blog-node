@@ -1,14 +1,15 @@
-import * as express from 'express'
+import express from 'express'
 import mongoose from 'mongoose'
 
 class App {
-  public express = express.application
+  public express: express.Application
 
   /**
    * construct
    */
   public constructor () {
     this.express = express()
+
     this.middleware()
     this.database()
     this.routes()
@@ -25,8 +26,8 @@ class App {
   }
 
   private routes (): void {
-    this.express.get('/', (req, res) => {
-      return res.send('hello word')
+    this.express.get('/', (req, res): void => {
+      res.send('hello word')
     })
   }
 }
