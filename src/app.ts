@@ -11,7 +11,7 @@ class App {
     this.express = express()
 
     this.middleware()
-    this.database()
+    // this.database()
     this.routes()
   }
 
@@ -26,7 +26,7 @@ class App {
   }
 
   private routes (): void {
-    this.express.get('/', (req, res): void => {
+    this.express.get('/api', (req, res): void => {
       res.send('hello word')
     })
   }
