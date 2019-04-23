@@ -4,6 +4,5 @@ export interface UserInterface extends Document {
   email: string,
   name: string,
   posts?: [],
-  comments?: [],
-  nameAndEmail(): string
+  comments?: []
 }

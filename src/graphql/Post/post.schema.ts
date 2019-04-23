@@ -11,7 +11,7 @@ const PostType = `
 
   input PostInput {
     title: String!
-    user: User!
+    user: Int!
     content: String!
   }
 `

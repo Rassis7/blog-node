@@ -1,4 +1,4 @@
-import { Schema, model, Model } from 'mongoose'
+import { Schema, model } from 'mongoose'
 import { UserInterface } from './../interfaces/UserInterface'
 
 const UserSchema = new Schema({
@@ -10,8 +10,8 @@ const UserSchema = new Schema({
   timestamps: true
 })
 
-UserSchema.methods.fullName = (): string => {
+UserSchema.methods.nameAndEmail = (): string => {
   return `${this.name} <${this.email}>`
 }
 
-export const User: Model<UserInterface> = model<UserInterface>('Users', UserSchema)
+export const User = model<UserInterface>('Users', UserSchema)

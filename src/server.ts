@@ -31,7 +31,7 @@ class App {
       schema,
       graphiql: process.env.NODE_ENV === 'development',
       context: {
-        schema: schemaModels
+        models: schemaModels
       }
     })
 

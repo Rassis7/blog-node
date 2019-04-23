@@ -1,4 +1,4 @@
-import { Schema, model, Model } from 'mongoose'
+import { Schema, model } from 'mongoose'
 import { CommentInterface } from './../interfaces/CommentInterface'
 
 const CommentSchema = new Schema({
@@ -9,4 +9,4 @@ const CommentSchema = new Schema({
   timestamps: true
 })
 
-export const Comment: Model<CommentInterface> = model<CommentInterface>('Comments', CommentSchema)
+export const Comment = model<CommentInterface>('Comments', CommentSchema)

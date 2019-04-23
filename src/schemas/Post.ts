@@ -1,4 +1,4 @@
-import { Schema, model, Model } from 'mongoose'
+import { Schema, model } from 'mongoose'
 import { PostInterface } from './../interfaces/PostInterface'
 
 const PostSchema = new Schema({
@@ -10,4 +10,4 @@ const PostSchema = new Schema({
   timestamps: true
 })
 
-export const Post: Model<PostInterface> = model<PostInterface>('Posts', PostSchema)
+export const Post = model<PostInterface>('Posts', PostSchema)
