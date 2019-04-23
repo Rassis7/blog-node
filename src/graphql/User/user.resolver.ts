@@ -17,17 +17,21 @@ export const UserResolvers = {
       return newUser.save()
     },
     updatedUser: async (parent, { id, input }, { models }: {models: ModelsInterface}): Promise<UserInterface> => {
-      return models.User.findByIdAndUpdate(id, { $set: input })
+      return models.User.findByIdAndUpdate(id, { $set: input }, { new: true })
     },
     deleteUser: async (parent, { id }, { models }: { models: ModelsInterface }): Promise<boolean> => {
-      let retornoDeleted = false
-      const userRemoved = models.User.findByIdAndDelete(id)
-
-      userRemoved.then((err): void => {
-        if (!err) retornoDeleted = true
+      return new Promise((resolve, reject): void => {
+        models.User.findByIdAndDelete(id)
+          .then(():void => {
+            // saber se foi removido ou não
+            models.User.findById(id)
+              .then((user): void => {
+                if (!user) resolve(true)
+                resolve(false)
+              })
+          })
+          .catch((e):void => reject(e))
       })
-
-      return retornoDeleted
     }
   }
 }
