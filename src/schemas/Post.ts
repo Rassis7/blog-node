@@ -10,4 +10,4 @@ const PostSchema = new Schema({
   timestamps: true
 })
 
-export const Post = model<PostInterface>('Posts', PostSchema)
+export const Post = model<PostInterface>('Post', PostSchema)

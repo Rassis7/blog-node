@@ -17,7 +17,7 @@ const UserType = `
 
 const UserQueries = `
   user(id: ID!): User
-  users(limit: Int, offser: Int): [User!]!
+  users(limit: Int, offset: Int): [User!]!
 `
 
 const UserMutation = `

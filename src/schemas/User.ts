@@ -14,4 +14,4 @@ UserSchema.methods.nameAndEmail = (): string => {
   return `${this.name} <${this.email}>`
 }
 
-export const User = model<UserInterface>('Users', UserSchema)
+export const User = model<UserInterface>('User', UserSchema)
