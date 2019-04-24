@@ -22,7 +22,7 @@ export const UserResolvers = {
     deleteUser: async (parent, { id }, { models }: { models: ModelsInterface }): Promise<boolean> => {
       return new Promise((resolve, reject): void => {
         models.User.findByIdAndDelete(id)
-          .then(():void => {
+          .then((): void => {
             // saber se foi removido ou não
             models.User.findById(id)
               .then((user): void => {

@@ -5,8 +5,6 @@ const UserType = `
     email: String!
     createdAt: String!
     updatedAt: String!
-    posts: [Post!]
-    comments: [Comment!]
   }
 
   input UserInput {
