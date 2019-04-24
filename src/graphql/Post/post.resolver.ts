@@ -19,14 +19,17 @@ export const PostResolvers = {
       return newPost.save()
     },
     updatedPost: async (parent, { id, input }, { models }: {models: ModelsInterface}): Promise<PostInterface> => {
-      return models.Post.findByIdAndUpdate(id, { $set: input }, { new: true })
+      return models.Post.findOneAndUpdate(id, { $set: input }, { new: true })
     },
     deletePost: async (parent, { id }, { models }: {models: ModelsInterface}): Promise<boolean> => {
       return new Promise((resolve, reject): void => {
         models.Post.findByIdAndRemove(id)
-          .then((post): void => {
-            if (!post) resolve(true)
-            resolve(false)
+          .then((): void => {
+            models.Post.findById(id)
+              .then((post): void => {
+                if (!post) resolve(true)
+                resolve(false)
+              })
           })
           .catch((e): void => reject(e))
       })

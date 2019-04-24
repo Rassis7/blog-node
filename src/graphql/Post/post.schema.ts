@@ -3,15 +3,14 @@ const PostType = `
     id: ID!
     title: String!
     content: String!
-    user: User!
-    comments: [Comment!]!
+    user: ID!
     createdAt: String!
     updatedAt: String
   }
 
   input PostInput {
     title: String!
-    user: Int!
+    user: ID!
     content: String!
   }
 `

@@ -2,16 +2,20 @@ const CommentType = `
   type Comment {
     id: ID!
     comment: String!
-    user: User!
-    post: Post!
+    user: ID!
+    post: ID!
     createdAt: String!
     updatedAt: String!
   }
 
   input CommentInput {
     comment: String!
-    user: Int!
-    post: Int!
+    user: ID!
+    post: ID!
+  }
+
+  input CommentUpdateInput {
+    comment: String!
   }
 `
 
@@ -24,7 +28,7 @@ const CommentQueries = `
 
 const CommentMutation = `
   createComment(input: CommentInput!): Comment
-  updatedComment(id: ID!, input: CommentInput!): Comment
+  updatedComment(id: ID!, input: CommentUpdateInput!): Comment
   deleteComment(id: ID!): Boolean
 `
 
