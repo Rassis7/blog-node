@@ -24,7 +24,7 @@ const CommentQueries = `
 
 const CommentMutation = `
   createComment(input: CommentInput!): Comment
-  updateComment(id: ID!, input: CommentInput!): Comment
+  updatedComment(id: ID!, input: CommentInput!): Comment
   deleteComment(id: ID!): Boolean
 `
 
