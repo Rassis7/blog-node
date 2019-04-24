@@ -23,7 +23,7 @@ export const PostResolvers = {
     },
     deletePost: async (parent, { id }, { models }: {models: ModelsInterface}): Promise<boolean> => {
       return new Promise((resolve, reject): void => {
-        models.Post.findByIdAndDelete(id)
+        models.Post.findByIdAndRemove(id)
           .then((post): void => {
             if (!post) resolve(true)
             resolve(false)

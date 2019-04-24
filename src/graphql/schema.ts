@@ -1,15 +1,23 @@
 import { makeExecutableSchema } from 'graphql-tools'
-import { Query } from './query'
-import { Mutation } from './mutation'
 import { merge } from 'lodash'
 
+import { Query } from './query'
+import { Mutation } from './mutation'
+
+// Types
 import { UserType } from './User/user.schema'
 import { PostType } from './Post/post.schema'
 import { CommentType } from './Comment/comment.schema'
+
+// Resolvers
 import { UserResolvers } from './User/user.resolver'
+import { PostResolvers } from './Post/post.resolver'
+import { CommentResolver } from './Comment/comment.resolver'
 
 const resolvers = merge(
-  UserResolvers
+  UserResolvers,
+  PostResolvers,
+  CommentResolver
 )
 
 const SchemaDefinition = `

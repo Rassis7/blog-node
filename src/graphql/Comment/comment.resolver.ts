@@ -26,7 +26,7 @@ export const CommentResolver = {
     },
     deleteComment: async (parent, { id }, { models }: {models: ModelsInterface}): Promise<boolean> => {
       return new Promise((resolve, reject): void => {
-        models.Comment.findByIdAndDelete(id)
+        models.Comment.findByIdAndRemove(id)
           .then((comment): void => {
             if (!comment) resolve(true)
             resolve(false)
