@@ -22,11 +22,11 @@ export const CommentResolver = {
       return comment.save()
     },
     updatedComment: async (parent, { id, input }, { models }:{models: ModelsInterface}): Promise<CommentInterface> => {
-      return models.Comment.findByIdAndUpdate(id, { $set: input }, { new: true })
+      return models.Comment.findOneAndUpdate(id, { $set: input }, { new: true })
     },
     deleteComment: async (parent, { id }, { models }: {models: ModelsInterface}): Promise<boolean> => {
       return new Promise((resolve, reject): void => {
-        models.Comment.findByIdAndRemove(id)
+        models.Comment.findOneAndDelete(id)
           .then((): void => {
             models.Comment.findById(id)
               .then((comment): void => {
